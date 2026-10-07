@@ -1,220 +1,73 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[codz]
-*$py.class
+# 1. Entradas de dados
+renda = float(input("Informe sua renda mensal: R$ "))
 
-# C extensions
-*.so
+# Primeira despesa
+escolha1 = int(input("Escolha o gasto 1 (1-Alimentação / 2-Transporte / 3-Lazer / 4-Saúde / 5-Outros): "))
+valor_gasto1 = float(input("Quanto você gastou com sua primeira despesa? R$ "))
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# Segunda despesa
+escolha2 = int(input("Escolha o gasto 2 (1-Alimentação / 2-Transporte / 3-Lazer / 4-Saúde / 5-Outros): "))
+valor_gasto2 = float(input("Quanto você gastou com sua segunda despesa? R$ "))
 
-# PyInstaller
-#   Usually these files are written by a python script from a template
-#   before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# 2. Definição da Primeira Categoria
+if escolha1 == 1:
+    categoria1 = "Alimentação"
+elif escolha1 == 2:
+    categoria1 = "Transporte"
+elif escolha1 == 3:
+    categoria1 = "Lazer"
+elif escolha1 == 4:
+    categoria1 = "Saúde"
+elif escolha1 == 5:
+    categoria1 = "Outros"
+else:
+    categoria1 = "Inválida"
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# 3. Definição da Segunda Categoria
+if escolha2 == 1:
+    categoria2 = "Alimentação"
+elif escolha2 == 2:
+    categoria2 = "Transporte"
+elif escolha2 == 3:
+    categoria2 = "Lazer"
+elif escolha2 == 4:
+    categoria2 = "Saúde"
+elif escolha2 == 5:
+    categoria2 = "Outros"
+else:
+    categoria2 = "Inválida"
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-*.lcov
-.hypothesis/
-.pytest_cache/
-cover/
+# 4. Cálculos
+soma_gastos = valor_gasto1 + valor_gasto2
+financeiro = renda - soma_gastos
 
-# Translations
-*.mo
-*.pot
+# 5. Exibição do Resumo
+print("\n" + "-" * 40)
+print("          CONSULTA FINANCEIRA          ")
+print("-" * 40)
+print(f"Renda inicial:          R$ {renda:.2f}")
+print(f"Gasto 1 ({categoria1}): R$ {valor_gasto1:.2f}")
+print(f"Gasto 2 ({categoria2}): R$ {valor_gasto2:.2f}")
+print(f"Total com gastos:       R$ {soma_gastos:.2f}")
+print(f"Saldo do mês:           R$ {financeiro:.2f}")
+print("-" * 40)
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# 6. Avaliação do saldo
+match financeiro:
+    case valor if valor >= 7000:
+        print("Status: Seu saldo final está excelente!")
+    case valor if valor > 0:
+        print("Status: Seu saldo está positivo, mas sob controle.")
+    case _:
+        print("Status: Atenção! Seus gastos superaram/zeraram seu saldo.")
+print("-" * 40)
 
-# Flask stuff:
-instance/
-.webassets-cache
 
-# Scrapy stuff:
-.scrapy
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-.pybuilder/
-target/
 
-# Jupyter Notebook
-.ipynb_checkpoints
 
-# IPython
-profile_default/
-ipython_config.py
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-# Pipfile.lock
 
-# uv
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-# uv.lock
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-# poetry.lock
-# poetry.toml
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
-#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
-# pdm.lock
-# pdm.toml
-.pdm-python
-.pdm-build/
-
-# pixi
-#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
-# pixi.lock
-#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
-#   in the .venv directory. It is recommended not to include this directory in version control.
-.pixi/*
-!.pixi/config.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule*
-celerybeat.pid
-
-# Redis
-*.rdb
-*.aof
-*.pid
-
-# RabbitMQ
-mnesia/
-rabbitmq/
-rabbitmq-data/
-
-# ActiveMQ
-activemq-data/
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.envrc
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs/Zensical documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#   JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#   and can be added to the global gitignore or merged into this file.  For a more nuclear
-#   option (not recommended) you can uncomment the following to ignore the entire idea folder.
-# .idea/
-
-# Abstra
-#   Abstra is an AI-powered process automation framework.
-#   Ignore directories containing user credentials, local state, and settings.
-#   Learn more at https://abstra.io/docs
-.abstra/
-
-# Visual Studio Code
-#   Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore that
-#   can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#   and can be added to the global gitignore or merged into this file. However, if you prefer, you
-#   could uncomment the following to ignore the entire vscode folder
-# .vscode/
-# Temporary file for partial code execution
-tempCodeRunnerFile.py
-
-# Ruff stuff:
-.ruff_cache/
-
-# PyPI configuration file
-.pypirc
-
-# Marimo
-marimo/_static/
-marimo/_lsp/
-__marimo__/
-
-# Streamlit
-.streamlit/secrets.toml
