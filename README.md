@@ -4,11 +4,13 @@ Boa noite, Professor!
 Abaixo, apresentamos a documentação do projeto desenvolvido pela equipe:
 
 👥 Integrantes
+
+
 Caio Denis Silva Sena
 
 Davi Serejo Lopes de Souza
 
-Francielle Rodrigues Neves
+Franciele Rodrigues Neves
 
 João Guilherme Dias de Andrade
 
